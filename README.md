@@ -63,7 +63,7 @@ This implementation depends on classic point cloud processing and linear algebra
 
 ### Adjustable Core Parameters
 
-All hyperparameters are centrally defined in the `main()` function, which can be flexibly tuned according to the expected accuracy of coarse registration and the quality of the point cloud data,:
+All parameters are centrally defined in the `main()` function, which can be flexibly tuned according to the expected accuracy of coarse registration and the quality of the point cloud data,:
 
 |Parameter|Description|
 |---|---|
