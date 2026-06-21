@@ -101,7 +101,3 @@ bibtex
 License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-Contact
-For questions or collaboration, please contact the corresponding author at [email].
-
-本回答由 AI 生成，内容仅供参考，请仔细甄别
