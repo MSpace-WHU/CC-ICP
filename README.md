@@ -60,7 +60,7 @@ This implementation depends on classic point cloud processing and linear algebra
 
 - Eigen >= 3.3
 
-- C++14 and above compiler (GCC / Clang / MSVC)
+- C++14 and above compiler
 
 ## Usage
 
@@ -72,11 +72,11 @@ This implementation depends on classic point cloud processing and linear algebra
 
 - `target.pcd`: Reference target point cloud
 
-- Output: Standard 4×4 rigid transformation matrix (printed to the console, supports custom file export)
+- Output: Standard 4×4 rigid transformation matrix 
 
 ### Adjustable Core Parameters
 
-All hyperparameters are centrally defined in the `main()` function, which can be flexibly tuned according to different forest density, terrain and point cloud quality:
+All hyperparameters are centrally defined in the `main()` function, which can be flexibly tuned according to the expected accuracy of coarse registration and the quality of the point cloud data,:
 
 |Parameter|Description|
 |---|---|
