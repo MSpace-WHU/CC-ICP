@@ -466,7 +466,7 @@ void constructWeightedErrorSystem(const vector<Eigen::Vector3f>& src_points,
 // Main registration pipeline
 // ----------------------------------------------------------------------------
 int main() {
-    // Load point clouds (hard-coded paths for demonstration)
+    // Load point clouds
     PointCloudT::Ptr targetcloud(new PointCloudT);
     PointCloudT::Ptr sourcecloud(new PointCloudT);
     readPointCloud("target.pcd", targetcloud);
