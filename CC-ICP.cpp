@@ -469,8 +469,8 @@ int main() {
     // Load point clouds (hard-coded paths for demonstration)
     PointCloudT::Ptr targetcloud(new PointCloudT);
     PointCloudT::Ptr sourcecloud(new PointCloudT);
-    readPointCloud("17-2.pcd", targetcloud);
-    readPointCloud("17-1.pcd", sourcecloud);
+    readPointCloud("target.pcd", targetcloud);
+    readPointCloud("source.pcd", sourcecloud);
 
     // Algorithm parameters
     float slice_height = 0.05f;
