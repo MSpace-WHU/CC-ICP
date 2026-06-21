@@ -1,6 +1,6 @@
-# CC-ICP: Cylinder-Constrained ICP for Forest Point Cloud Fine Registration
+# CC-ICP: Cylinder-Constrained Iterative Closest Point for Forest Point Cloud Fine Registration
 
-This repository contains the official C++ implementation of **CC-ICP (Cylinder-Constrained Iterative Closest Point)**, a dedicated fine registration algorithm for forest laser point clouds, as described in the paper. The proposed method is not limited to specific scanning equipment and is universally applicable to various types of forest scene point cloud data.
+This repository contains the official C++ implementation of **CC-ICP (Cylinder-Constrained Iterative Closest Point)**, a dedicated fine registration algorithm for forest point clouds, as described in the paper. 
 
 ## Overview
 
@@ -56,50 +56,13 @@ Extensive experiments on 24 plots of mountainous forest scenes verify that the p
 
 This implementation depends on classic point cloud processing and linear algebra libraries, with good compatibility and portability:
 
-- PCL >= 1.8 (Tested on PCL 1.8 / 1.12)
+- PCL >= 1.8 (Tested on PCL 1.11.1)
 
 - Eigen >= 3.3
 
 - CMake >= 3.12
 
 - C++14 and above compiler (GCC / Clang / MSVC)
-
-Optional dependencies (for visualization and acceleration):
-
-- VTK (bundled with PCL, for point cloud visualization)
-
-- OpenMP (for point cloud traversal acceleration)
-
-## Build Guide
-
-### 1. Clone Repository
-
-```Plain Text
-git clone https://github.com/your-name/CC-ICP-Forest-Reg.git
-cd CC-ICP-Forest-Reg
-```
-
-### 2. Compile with CMake
-
-#### Linux / macOS
-
-```Plain Text
-mkdir Release && cd Release
-cmake -DCMAKE_BUILD_TYPE=Release ..
-make -j$(nproc)
-```
-
-#### Windows (Visual Studio x64 Native Command Prompt)
-
-```Plain Text
-mkdir Release && cd Release
-cmake -G "NMake Makefiles" -DCMAKE_BUILD_TYPE=Release ..
-nmake
-```
-
-### 3. IDE Build Option
-
-Open the root `CMakeLists.txt` with CLion, VS Code + CMake extension or Visual Studio, configure x64 Release mode and build the project directly.
 
 ## Usage
 
@@ -112,39 +75,6 @@ Open the root `CMakeLists.txt` with CLion, VS Code + CMake extension or Visual S
 - `target.pcd`: Reference target point cloud
 
 - Output: Standard 4×4 rigid transformation matrix (printed to the console, supports custom file export)
-
-### Quick Run
-
-The default demo program adopts hard-coded file paths. Please modify the point cloud file paths in the `main()` function according to your data before compilation:
-
-```Plain Text
-readPointCloud("17-2.pcd", targetcloud);
-readPointCloud("17-1.pcd", sourcecloud);
-```
-
-After compilation, execute the executable file directly:
-
-```Plain Text
-# Linux/macOS
-./CCICP_Registration
-
-# Windows
-CCICP_Registration.exe
-```
-
-### Program Output
-
-The program will automatically output detailed runtime logs and final results, including:
-
-1. Time consumption of ground point extraction and trunk cylinder detection;
-
-2. Statistical number of valid trunk cylinder features extracted from source and target point clouds;
-
-3. Number of successful trunk feature matches in each iteration;
-
-4. Real-time updated rotation matrix, translation vector and iteration convergence state;
-
-5. Final converged 3×3 rotation matrix, 3D translation vector and complete 4×4 transformation matrix.
 
 ### Adjustable Core Parameters
 
@@ -161,42 +91,13 @@ All hyperparameters are centrally defined in the `main()` function, which can be
 |num_cylinder|Minimum valid point count for a single trunk cylinder|
 |resolution|Grid size for ground point extraction|
 |num_groundPnt|Number of nearest ground points for IDW height interpolation|
-## File Structure
-
-```Plain Text
-CC-ICP-Forest-Reg/
-├── CMakeLists.txt        # Project build configuration file
-├── CCICP0621.cpp         # Complete CC-ICP algorithm source code
-├── README.md             # Project usage documentation
-└── test_data/            # Default storage directory for PCD test point clouds
-```
 
 ## Citation
 
-If you use this code, algorithm ideas or experimental results in your academic research, please cite our work:
-
-```Plain Text
-@article{ccicp2026forest,
-  title={Cylinder-Constrained ICP for Fine Registration of Forest Laser Point Clouds},
-  author={XXX, XXX, XXX},
-  journal={XXX},
-  year={2026}
-}
-```
+If you use this code, algorithm ideas or experimental results in your academic research, please cite our work.
 
 ## Contact
 
 For code bugs, parameter tuning guidance, academic communication and cooperation, please contact:
 
-Your Name <your-email@example.com>
-
-## Disclaimer
-
-1. The demo version adopts hard-coded file paths. For batch processing and engineering deployment, it is recommended to add command-line parameter parsing functions and optimize file input/output logic;
-
-2. The trunk detection module based on DBSCAN + RANSAC has slight randomness, leading to tiny deviations in repeated experimental results, which do not affect the overall registration accuracy;
-
-3. This algorithm is a high-precision fine registration method. For large-scale forest multi-point-cloud registration tasks, it is recommended to combine it with coarse registration algorithms to achieve end-to-end efficient and accurate alignment.
-
-4. This method is applicable to all types of forest laser point cloud data, without being limited to specific scanning devices or data acquisition modes.
-> （注：文档部分内容可能由 AI 生成）
+Xusong Dai <daixusong@whu.edu.cn>
