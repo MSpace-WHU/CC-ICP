@@ -38,19 +38,6 @@ The algorithm adaptively fuses two types of residual information through a weigh
 
 6. Iterative transformation update until convergence to obtain the optimal registration result.
 
-### Experiment Performance
-
-Extensive experiments on 24 plots of mountainous forest scenes verify that the proposed CC-ICP method outperforms five mainstream fine registration algorithms in terms of registration robustness, alignment accuracy and computational efficiency:
-
-- Standard ICP
-
-- Point-to-Plane ICP
-
-- Generalized ICP (GICP)
-
-- Symmetric ICP
-
-- Normal Distributions Transform (NDT)
 
 ## Dependencies
 
